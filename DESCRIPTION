@@ -15,5 +15,10 @@ Imports:
     data.table (>= 1.14.2),
     magrittr
     dplyr
+    lubridate
+    tidyr
 URL: https://github.com/kylebennison/statRdaysCFB
 BugReports: https://github.com/kylebennison/statRdaysCFB/issues
+Depends: 
+    R (>= 2.10)
+LazyData: true
