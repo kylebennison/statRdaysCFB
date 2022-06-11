@@ -145,7 +145,7 @@ get_drives <- function(start_year, end_year, start_week, end_week){
 
 }
 
-# Get betting data from the cfbd api
+#' Get betting data from the cfbd api
 #'
 #' Get the betting data from collegefootballdata.com for a specified range of
 #' years or weeks. Most years contain spread data at a minimum, and recent years
@@ -261,7 +261,7 @@ get_betting <-
                 awayMoneyline = mean(awayMoneyline, na.rm = TRUE),
                 .groups = "keep"
       ) %>%
-      dplyr::mutate(formattedSpread = paste0(if_else(spread > 0, awayTeam, homeTeam),
+      dplyr::mutate(formattedSpread = paste0(dplyr::if_else(spread > 0, awayTeam, homeTeam),
                                       " ",
                                       "-",
                                       abs(spread))) %>%
@@ -276,10 +276,15 @@ get_betting <-
 #' @param url string. The url of the API endpoint WITHOUT any parameters added onto the end.
 #' If you have any parameters to add, please use the provided fields and we will add them
 #' to the url for you.
+#' @param start_year int first year of data to return
+#' @param end_year int last year of data to return
+#' @param start_week int first week of data to return
+#' @param end_week int last week of data to return
+#' @param key your API key. Use variable my_key or make a call to Sys.getenv("cfbd_staturdays_key")
 #' @export
-get_anything <- function(url, start_year=2021, end_year=2021, start_week, end_week, key){
+get_anything <- function(url, start_year=2021, end_year=2021, start_week, end_week, key=my_key){
 
-  source("https://raw.githubusercontent.com/kylebennison/staturdays/master/Production/cfbd_api_key_function.R")
+  source("R/api.R")
 
   if(missing(key)){
 
@@ -323,24 +328,30 @@ get_anything <- function(url, start_year=2021, end_year=2021, start_week, end_we
 
 }
 
-# Get Team Colors
+#' Get Team Colors, Mascots and Abbreviations
+#' @description Get a list of each school's primary, secondary colors, mascots,
+#' team nicknames, abbreviations, and more from the teams endpoint.
 #' @export
 get_colors <- function(){
-
-  source("https://raw.githubusercontent.com/kylebennison/staturdays/master/Production/get_anything.R")
 
   team_colors <- get_anything(url = "https://api.collegefootballdata.com/teams",
                               key = my_key)
 
-  team_colors <- team_colors %>% unnest(cols = logos) %>%
-    mutate(logo_color = if_else(str_detect(logos, "dark"), "dark", "light")) %>%
-    pivot_wider(names_from = logo_color, values_from = logos)
+  team_colors <- team_colors %>%
+    tidyr::unnest(cols = logos) %>%
+    dplyr::mutate(logo_color = dplyr::if_else(stringr::str_detect(logos, "dark"), "dark", "light")) %>%
+    tidyr::pivot_wider(names_from = logo_color, values_from = logos)
 
   return(team_colors)
 
 }
 
 #' Get Historic Elo Ratings
+#' Get Elo ratings from any year from 2000 to present.
+#' @param start_year int the first year of elo ratings you want
+#' @param end_year int the last year of elo ratings you want
+#' @param teams character (optional) a list of teams you want the ratings for.
+#' When omitted returns all teams.
 #' @export
 get_elo <- function(start_year = 2021, end_year = 2021, teams){
 
