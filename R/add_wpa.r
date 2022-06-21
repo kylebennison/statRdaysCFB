@@ -1,11 +1,6 @@
 # Script to add wpa to plays data
 add_wpa <- function(plays_df){
 
-
-  source("https://raw.githubusercontent.com/kylebennison/staturdays/master/Production/cfbd_api_key_function.R")
-  source("https://raw.githubusercontent.com/kylebennison/staturdays/master/Production/Play%20Types%20and%20Power%20Conference%20Names.R")
-  source("https://raw.githubusercontent.com/kylebennison/staturdays/master/Production/source_everything.R")
-
   plays.master <- plays_df
 
   original_columns <- colnames(plays.master)
