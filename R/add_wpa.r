@@ -199,7 +199,7 @@ add_wpa <- function(plays_df){
              pct_done, is_kickoff) %>%
       as.matrix()
 
-    dtest <- xgb.DMatrix(x.test,missing=NA)
+    dtest <- xgboost::xgb.DMatrix(x.test,missing=NA)
 
     plays_wp$home_wp <- predict(XGBm, newdata = dtest)
 
