@@ -11,8 +11,6 @@
 #' @export
 get_plays <- function(start_week = 1, end_week = 1, start_year = 2020, end_year = 2020){
 
-  source("R/api.R")
-
   base_url_plays <- "https://api.collegefootballdata.com/plays?" # Base URL to work off of
   start_week <- start_week
   end_week <- end_week
@@ -63,8 +61,6 @@ get_plays <- function(start_week = 1, end_week = 1, start_year = 2020, end_year 
 #' @export
 get_games <- function(start_year, end_year, start_week, end_week){
 
-  source("R/api.R")
-
   base_url_games <- "https://api.collegefootballdata.com/games?" # Base URL for games data
 
   if(missing(start_week) | missing(end_week)){
@@ -112,7 +108,7 @@ get_games <- function(start_year, end_year, start_week, end_week){
 #' @export
 get_drives <- function(start_year, end_year, start_week, end_week){
 
-  source("R/api.R")
+
 
   base_url_drives <- "https://api.collegefootballdata.com/drives?" # Base URL for drives data
 
@@ -170,7 +166,7 @@ get_betting <-
            start_week,
            end_week) {
 
-    source("R/api.R")
+
 
     if (missing(start_year) & missing(end_year)) {
       start_year <- lubridate::year(today())
@@ -284,7 +280,7 @@ get_betting <-
 #' @export
 get_anything <- function(url, start_year=2021, end_year=2021, start_week, end_week, key=my_key){
 
-  source("R/api.R")
+
 
   if(missing(key)){
 
