@@ -236,16 +236,16 @@ add_success <- function(plays_df){
     # Add 1/0 play results
 
     plays_tmp <- plays.master %>%
-      mutate(
-        pass_attempt = if_else(pass_rush == "Pass" &
+      dplyr::mutate(
+        pass_attempt = dplyr::if_else(pass_rush == "Pass" &
                                  play_type != "Sack", 1, 0),
-        pass_completion = if_else(
+        pass_completion = dplyr::if_else(
           play_type %in% c("Pass Reception", "Pass Completion", "Passing Touchdown"),
           1,
           0
         ),
-        pass_touchdown = if_else(play_type == "Passing Touchdown", 1, 0),
-        pass_intercepted = if_else(
+        pass_touchdown = dplyr::if_else(play_type == "Passing Touchdown", 1, 0),
+        pass_intercepted = dplyr::if_else(
           play_type %in% c(
             "Pass Interception",
             "Pass Interception Return",
@@ -254,10 +254,10 @@ add_success <- function(plays_df){
           1,
           0
         ),
-        passer_sacked = if_else(play_type == "Sack", 1, 0),
-        rush_touchdown = if_else(play_type == "Rushing Touchdown", 1, 0),
-        rush_attempt = if_else(pass_rush == "Rush", 1, 0),
-        pass_fumbled = if_else(
+        passer_sacked = dplyr::if_else(play_type == "Sack", 1, 0),
+        rush_touchdown = dplyr::if_else(play_type == "Rushing Touchdown", 1, 0),
+        rush_attempt = dplyr::if_else(pass_rush == "Rush", 1, 0),
+        pass_fumbled = dplyr::if_else(
           pass_rush == "Pass" &
             play_type %in% c(
               "Fumble Recovery (Opponent)",
@@ -267,7 +267,7 @@ add_success <- function(plays_df){
           1,
           0
         ),
-        rush_fumbled = if_else(
+        rush_fumbled = dplyr::if_else(
           pass_rush == "Rush" &
             play_type %in% c(
               "Fumble Recovery (Opponent)",
