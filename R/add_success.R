@@ -3,15 +3,13 @@
 #' provided by the get_plays() function.
 #' @param plays_df dataframe an existing dataframe object as provided by the
 #' get_plays() function. Ideally this dataframe has not been modified yet.
-#' @example
+#' @examples
 #' library(statRdaysCFB)
 #' plays_df <- get_plays(start_year = 2021, end_year = 2021)
 #' plays_w_success <- add_success(plays_df)
 #' @export
 add_success <- function(plays_df){
 
-  # Load api function
-  source("R/api.R")
   # Load data needed
   for(i in dir("data/")){
     data(i, envir = environment())
@@ -84,7 +82,7 @@ add_success <- function(plays_df){
 
       plays.master <- plays.master %>%
         dplyr::mutate(
-          pass_rush = case_when(
+          pass_rush = dplyr::case_when(
             play_specifics %in% c(
               "Fumble Recovery (Own)",
               "Fumble Recovery (Opponent)",
