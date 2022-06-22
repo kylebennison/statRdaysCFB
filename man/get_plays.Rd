@@ -2,10 +2,23 @@
 % Please edit documentation in R/get.R
 \name{get_plays}
 \alias{get_plays}
-\title{Get play by play data}
+\title{Get Play-by-Play Data}
 \usage{
 get_plays(start_week = 1, end_week = 1, start_year = 2020, end_year = 2020)
 }
+\arguments{
+\item{start_week}{int. The first week of the season you want pbp data for.}
+
+\item{end_week}{int. The last week of the season you want pbp data for.}
+
+\item{start_year}{int. The first season you want pbp data for.}
+
+\item{end_year}{int. The last season you want pbp data for.}
+}
+\value{
+tibble of play-by-play data
+}
 \description{
-Get play by play data
+Get the play-by-play data from collegefootballdata.com for a specified range of
+years or weeks.
 }

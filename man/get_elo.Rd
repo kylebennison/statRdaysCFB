@@ -2,10 +2,20 @@
 % Please edit documentation in R/get.R
 \name{get_elo}
 \alias{get_elo}
-\title{Get Historic Elo Ratings}
+\title{Get Historic Elo Ratings
+Get Elo ratings from any year from 2000 to present.}
 \usage{
 get_elo(start_year = 2021, end_year = 2021, teams)
 }
+\arguments{
+\item{start_year}{int the first year of elo ratings you want}
+
+\item{end_year}{int the last year of elo ratings you want}
+
+\item{teams}{character (optional) a list of teams you want the ratings for.
+When omitted returns all teams.}
+}
 \description{
 Get Historic Elo Ratings
+Get Elo ratings from any year from 2000 to present.
 }

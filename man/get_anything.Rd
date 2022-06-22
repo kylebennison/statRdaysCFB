@@ -10,13 +10,23 @@ get_anything(
   end_year = 2021,
   start_week,
   end_week,
-  key
+  key = my_key
 )
 }
 \arguments{
 \item{url}{string. The url of the API endpoint WITHOUT any parameters added onto the end.
 If you have any parameters to add, please use the provided fields and we will add them
 to the url for you.}
+
+\item{start_year}{int first year of data to return}
+
+\item{end_year}{int last year of data to return}
+
+\item{start_week}{int first week of data to return}
+
+\item{end_week}{int last week of data to return}
+
+\item{key}{your API key. Use variable my_key or make a call to Sys.getenv("cfbd_staturdays_key")}
 }
 \description{
 Get data from any API endpoint on cfbdata.com
