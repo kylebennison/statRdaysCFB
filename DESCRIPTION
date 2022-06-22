@@ -7,16 +7,23 @@ Description: This package makes calls to the collegefootballdata.com API for you
   almost any data from any endpoint. We use the API key that you supply us and save it for you,
   and take care of all the complicated looping and stuff you don't want to have to worry about. We
   also include some bonus features like success rates, win probabilities, and elo ratings.
-License: `use_mit_license()`
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.0
 Imports:
     data.table (>= 1.14.2),
-    magrittr
-    dplyr
-    lubridate
-    tidyr
+    magrittr,
+    dplyr,
+    lubridate,
+    tidyr,
+    ggplot2,
+    httr,
+    jsonlite,
+    purrr,
+    readr,
+    stringr,
+    xgboost
 URL: https://github.com/kylebennison/statRdaysCFB
 BugReports: https://github.com/kylebennison/statRdaysCFB/issues
 Depends: 
