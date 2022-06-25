@@ -3,7 +3,23 @@
 # cfbd_staturdays_key = "mysecretkey"
 #' @export
 my_key <- Sys.getenv("cfbd_staturdays_key")
+# TODO Turn this into a function because otherwise this gets called at build
+# time, not run time, and will not set the key for the user.
+# TODO: Then, turn all references to my_key into my_key() and it will
+# call the func and get the key when other functions that use it are called
+# Consider using 	with_envvar(), local_envvar(), instead of Sys.setenv() below
 
+#' Make a direct call to the cfbd api
+#' @description Directly call an API endpoint providing the full url and your key. Note, you
+#' usually don't need to do this as the get_anything() function should be able to
+#' call almost any endpoint for you.
+#' @param url character - Full url endpoint you want to access.
+#'
+#' @param key character - Your api key
+#'
+#' @returns a tibble
+#'
+#' @export
 cfbd_api <- function(url, key){
 
   data <- httr::GET(url = url,
