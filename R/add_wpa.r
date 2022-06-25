@@ -1,4 +1,5 @@
-# Script to add wpa to plays data
+#' Add win probability added to play-by-play
+#' @export
 add_wpa <- function(plays_df){
 
   plays.master <- plays_df
