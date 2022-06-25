@@ -2,6 +2,8 @@
 
 export("%>%")
 export(add_success)
+export(add_wpa)
+export(cfbd_api)
 export(get_anything)
 export(get_betting)
 export(get_colors)
