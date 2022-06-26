@@ -10,7 +10,7 @@ get_anything(
   end_year = 2021,
   start_week,
   end_week,
-  key = my_key
+  key = my_key()
 )
 }
 \arguments{
@@ -26,7 +26,7 @@ to the url for you.}
 
 \item{end_week}{int last week of data to return}
 
-\item{key}{your API key. Use variable my_key or make a call to Sys.getenv("cfbd_staturdays_key")}
+\item{key}{your API key. Use variable my_key() or make a call to Sys.getenv("cfbd_staturdays_key")}
 }
 \description{
 Get data from any API endpoint on cfbdata.com
