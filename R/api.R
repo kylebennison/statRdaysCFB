@@ -20,6 +20,11 @@ my_key <- function(){
 #' @export
 cfbd_api <- function(url, key){
 
+  # Error handling
+  if(my_key() == ""){
+    stop("Key is blank. Try setting your key first with set_cfb_api_key()")
+  }
+
   data <- httr::GET(url = url,
                     httr::content_type_json(),
                     httr::add_headers('Authorization' = paste('Bearer', key)))
