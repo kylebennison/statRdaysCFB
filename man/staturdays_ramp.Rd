@@ -6,6 +6,10 @@
 \usage{
 staturdays_ramp(x)
 }
+\arguments{
+\item{x}{a numeric value that you want to convert to a color along a scale from
+min being the first color in the staturdays palette to max being the last.}
+}
 \description{
 This can be used for gt() tables if you want
 a gradient from one color to another representing low-to-high values.

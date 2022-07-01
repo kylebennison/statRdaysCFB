@@ -6,6 +6,10 @@
 \usage{
 add_wpa(plays_df)
 }
+\arguments{
+\item{plays_df}{a dataframe, ideally the one provided by the
+get_plays() function.}
+}
 \description{
 Add win probability added to play-by-play
 }

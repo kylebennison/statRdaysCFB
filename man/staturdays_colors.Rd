@@ -6,6 +6,10 @@
 \usage{
 staturdays_colors(...)
 }
+\arguments{
+\item{...}{either NULL or a character vector of colors in the palette you wish
+to return hex values for.}
+}
 \description{
 Simply call staturdays_colors() to get a list of our
 theme colors and their hex values, or provide a color name and it will
