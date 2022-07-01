@@ -1,4 +1,8 @@
 #' Add win probability added to play-by-play
+#'
+#' @param plays_df a dataframe, ideally the one provided by the
+#' get_plays() function.
+#'
 #' @export
 add_wpa <- function(plays_df){
 
