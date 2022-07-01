@@ -69,4 +69,25 @@
 #' @source created
 "scrimmage_plays_kicks"
 
+#' List of the staturdays color palette
+#'
+#' @format a character vector
+"staturdays_palette"
+
+#' List of the staturdays colors
+#'
+#' @format a character vector
+"staturdays_col_list"
+
+#' ggplot2 theme for use with plotting
+#'
+#' This sets some useful defaults to make plots look more polished.
+#'
+#' To use it, simply put this line at the end of your ggplot code:
+#' + staturdays_theme
+#'
+#' Note: This is not a function. Don't use ().
+#'
+#' @format ggplot2 theme() object.
+"staturdays_theme"
 
