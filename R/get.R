@@ -9,7 +9,7 @@
 #' @param end_year int. The last season you want pbp data for.
 #' @return tibble of play-by-play data
 #' @export
-get_plays <- function(start_week = 1, end_week = 1, start_year = 2020, end_year = 2020){
+get_plays <- function(start_week = 1, end_week = 1, start_year = 2021, end_year = 2021){
 
   base_url_plays <- "https://api.collegefootballdata.com/plays?" # Base URL to work off of
   start_week <- start_week
@@ -28,6 +28,10 @@ get_plays <- function(start_week = 1, end_week = 1, start_year = 2020, end_year 
       plays$year = j
       plays.master = rbind(plays.master, plays, make.row.names=TRUE)
     }
+  }
+
+  if(nrow(plays.master) < 1){
+    stop("Plays dataframe came back empty. Double check your dates provided.")
   }
 
   # Rename columns to match historic
@@ -292,7 +296,7 @@ get_anything <- function(url, start_year=2021, end_year=2021, start_week, end_we
 
   } else if(missing(start_week) & missing(end_week)){
 
-    response <- tibble()
+    response <- dplyr::tibble()
     for(yr in start_year:end_year){
 
       response_url <- paste0(url, "?year=", as.character(yr))
@@ -303,7 +307,7 @@ get_anything <- function(url, start_year=2021, end_year=2021, start_week, end_we
     }
   } else {
 
-    response <- tibble()
+    response <- dplyr::tibble()
     for(yr in start_year:end_year){
       for(wk in start_week:end_week){
 

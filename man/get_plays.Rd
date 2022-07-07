@@ -4,7 +4,7 @@
 \alias{get_plays}
 \title{Get Play-by-Play Data}
 \usage{
-get_plays(start_week = 1, end_week = 1, start_year = 2020, end_year = 2020)
+get_plays(start_week = 1, end_week = 1, start_year = 2021, end_year = 2021)
 }
 \arguments{
 \item{start_week}{int. The first week of the season you want pbp data for.}
