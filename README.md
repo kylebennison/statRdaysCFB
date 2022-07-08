@@ -76,6 +76,9 @@ plays_w_colors %>%
   staturdays_theme
 ```
 
+![image](https://user-images.githubusercontent.com/66328277/177992942-db2409f6-c9bc-4e39-bfc2-305d20824b44.png)
+
+
 ## Usage
 
 Please tag [@cfb_data](https://twitter.com/cfb_data) and [@staturdays](https://twitter.com/Staturdays) in any work created using this data/package.
