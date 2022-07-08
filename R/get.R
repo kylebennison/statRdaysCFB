@@ -63,7 +63,7 @@ get_plays <- function(start_week = 1, end_week = 1, start_year = 2021, end_year 
 #' @param end_year int. The last season you want game data for.
 #' @return tibble of game-level data
 #' @export
-get_games <- function(start_year, end_year, start_week, end_week){
+get_games <- function(start_year = 2021, end_year = 2021, start_week = 1, end_week = 1){
 
   base_url_games <- "https://api.collegefootballdata.com/games?" # Base URL for games data
 
@@ -110,7 +110,7 @@ get_games <- function(start_year, end_year, start_week, end_week){
 #' @param end_year int. The last season you want drive data for.
 #' @return tibble of drive-level data
 #' @export
-get_drives <- function(start_year, end_year, start_week, end_week){
+get_drives <- function(start_year = 2021, end_year = 2021, start_week = 1, end_week = 1){
 
 
 
@@ -167,13 +167,13 @@ get_drives <- function(start_year, end_year, start_week, end_week){
 get_betting <-
   function(start_year,
            end_year,
-           start_week,
-           end_week) {
+           start_week = 1,
+           end_week = 1) {
 
 
 
     if (missing(start_year) & missing(end_year)) {
-      start_year <- lubridate::year(today())
+      start_year <- lubridate::year(lubridate::today())
       end_year <- start_year
       warning("Setting start year and end year to ", start_year,
               " since none was provided.")
@@ -273,6 +273,7 @@ get_betting <-
 
 #' Get Anything From the CFBD API
 #' @description Get data from any API endpoint on cfbdata.com
+#' @details To view API endpoints, visit https://api.collegefootballdata.com/api/docs/?url=/api-docs.json#/
 #' @param url string. The url of the API endpoint WITHOUT any parameters added onto the end.
 #' If you have any parameters to add, please use the provided fields and we will add them
 #' to the url for you.
@@ -281,16 +282,12 @@ get_betting <-
 #' @param start_week int first week of data to return
 #' @param end_week int last week of data to return
 #' @param key your API key. Use variable my_key() or make a call to Sys.getenv("cfbd_staturdays_key")
+#' @examples
+#' get_anything(url = "https://api.collegefootballdata.com/venues")
 #' @export
 get_anything <- function(url, start_year=2021, end_year=2021, start_week, end_week, key=my_key()){
 
-
-
-  if(missing(key)){
-
-    message("You must supply an API key. You can get one for free at collegefootballdata.com")
-
-  } else if(stringr::str_detect(url, "\\?") == TRUE){
+  if(stringr::str_detect(url, "\\?") == TRUE){
 
     message("Please remove any parameters and the '?' from your url field")
 

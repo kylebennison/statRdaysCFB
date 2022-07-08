@@ -5,7 +5,7 @@
 \title{Get the drive data from collegefootballdata.com for a specified range of
 years or weeks.}
 \usage{
-get_drives(start_year, end_year, start_week, end_week)
+get_drives(start_year = 2021, end_year = 2021, start_week = 1, end_week = 1)
 }
 \arguments{
 \item{start_year}{int. The first season you want drive data for.}
