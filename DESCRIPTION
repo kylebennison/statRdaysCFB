@@ -1,6 +1,6 @@
 Package: statRdaysCFB
 Title: Work With The Collegefootballdata.com API, Easily
-Version: 0.0.0.9000
+Version: 1.0.0
 Authors@R: 
     person("Kyle", "Bennison", , "kyle@staturdays.com", role = c("aut", "cre"))
 Description: This package makes calls to the collegefootballdata.com API for you, making it easy to get
