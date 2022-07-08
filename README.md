@@ -1,4 +1,4 @@
-# statRdaysCFB
+# statRdaysCFB 1.0.0
 Work With The Collegefootballdata.com API, Easily
 
 This package will allow you to easily interact with the cfbdata API without having to worry about the boring stuff.
