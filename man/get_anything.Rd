@@ -31,3 +31,9 @@ to the url for you.}
 \description{
 Get data from any API endpoint on cfbdata.com
 }
+\details{
+To view API endpoints, visit https://api.collegefootballdata.com/api/docs/?url=/api-docs.json#/
+}
+\examples{
+get_anything(url = "https://api.collegefootballdata.com/venues")
+}

@@ -78,7 +78,15 @@ plays_w_colors %>%
 
 ![image](https://user-images.githubusercontent.com/66328277/177992942-db2409f6-c9bc-4e39-bfc2-305d20824b44.png)
 
+## Reporting Issues
+Report issues [here](https://github.com/kylebennison/statRdaysCFB/issues/new).
+
+Use the label `bug` for bugs and `enhancement` for new feature requests.
 
 ## Usage
 
 Please tag [@cfb_data](https://twitter.com/cfb_data) and [@staturdays](https://twitter.com/Staturdays) in any work created using this data/package.
+
+## Community
+
+Please join our [discord](https://discord.gg/xFAZ6GDEUd) to connect with other CFB stats folks and get support with the package.

@@ -4,7 +4,7 @@
 \alias{get_betting}
 \title{Get betting data from the cfbd api}
 \usage{
-get_betting(start_year, end_year, start_week, end_week)
+get_betting(start_year, end_year, start_week = 1, end_week = 1)
 }
 \arguments{
 \item{start_year}{int. The first season you want betting data for.}

@@ -7,7 +7,7 @@ years or weeks. Note that you can request future weeks for the current season
 and you will essentially get back the schedule for the season. If the game is completed,
 you will get the final score along with everything else.}
 \usage{
-get_games(start_year, end_year, start_week, end_week)
+get_games(start_year = 2021, end_year = 2021, start_week = 1, end_week = 1)
 }
 \arguments{
 \item{start_year}{int. The first season you want game data for.}
