@@ -86,3 +86,7 @@ Use the label `bug` for bugs and `enhancement` for new feature requests.
 ## Usage
 
 Please tag [@cfb_data](https://twitter.com/cfb_data) and [@staturdays](https://twitter.com/Staturdays) in any work created using this data/package.
+
+## Community
+
+Please join our [discord](https://discord.gg/xFAZ6GDEUd) to connect with other CFB stats folks and get support with the package.
