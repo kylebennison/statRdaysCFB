@@ -258,7 +258,7 @@ get_betting <-
 
     # Do some stuff that needs to be done eventually anyway
     betting.master <- betting.master %>%
-      dplyr::group_by(id, homeTeam, awayTeam, season, week, seasonType) %>%
+      dplyr::group_by(id, homeTeam, awayTeam, homeScore, awayScore, season, week, seasonType) %>%
       dplyr::summarise(spread = mean(as.double(spread), na.rm = TRUE),
                 spreadOpen = mean(as.double(spreadOpen), na.rm = TRUE),
                 overUnder = mean(as.double(overUnder), na.rm = TRUE),
