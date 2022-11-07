@@ -156,19 +156,21 @@ get_drives <- function(start_year = 2021, end_year = 2021, start_week = 1, end_w
 #' providers in cases where there's more than one line given. However, if you'd
 #' prefer to get all the lines from the various providers yourself, you can instead
 #' make a call to to betting endpoint directly (https://api.collegefootballdata.com/lines)
-#' using the cfbd_api() function.
+#' using the get_anything() function.
 #'
-#' @param start_week int. The first week of the season you want betting data for.
-#' @param end_week int. The last week of the season you want betting data for.
 #' @param start_year int. The first season you want betting data for.
 #' @param end_year int. The last season you want betting data for.
+#' @param start_week int (optional). The first week of the season you want betting data for.
+#' @param end_week int (optional). The last week of the season you want betting data for.
+#' @param season_type character. "regular", "postseason", or "both". Default is "both".
 #' @return tibble of game-level betting data
 #' @export
 get_betting <-
   function(start_year,
            end_year,
-           start_week = 1,
-           end_week = 1) {
+           start_week,
+           end_week,
+           season_type = "both") {
 
 
 
@@ -206,15 +208,17 @@ get_betting <-
       stop("Start year must be less than or equal to end year")
     }
 
-    betting.master = data.frame()
+    betting.master <- data.frame()
 
     if (missing(start_week) | missing(end_week)) {
 
       for (j in start_year:end_year) {
         message("Getting betting data for ", j)
         betting_url <-
-          paste0("https://api.collegefootballdata.com/lines?seasonType=both&year=",
-                 j)
+          paste0("https://api.collegefootballdata.com/lines?seasonType=",
+          season_type,
+          "&year=",
+          j)
         full_url_betting_encoded <- utils::URLencode(betting_url)
         betting <- cfbd_api(full_url_betting_encoded, my_key())
         betting <- dplyr::as_tibble(betting)
@@ -230,9 +234,11 @@ get_betting <-
         for (i in start_week:end_week) {
           message("Getting betting data for ", j, " Week ", i)
           betting_url <-
-            paste0("https://api.collegefootballdata.com/lines?seasonType=both&year=",
-                   j,
-                   "&")
+            paste0("https://api.collegefootballdata.com/lines?seasonType=",
+            season_type,
+            "&year=",
+            j,
+            "&")
           full_url_betting <- paste0(betting_url, "week=", as.character(i))
 
           full_url_betting_encoded <- utils::URLencode(full_url_betting)
