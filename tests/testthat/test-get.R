@@ -26,12 +26,13 @@ test_that("get_anything() works", {
 })
 
 test_that("get_betting() works", {
-  expect_s3_class(get_betting(2021, 2021, 1, 1), "data.frame", exact = FALSE)
-  expect_gt(nrow(get_betting(2021, 2021, 1, 1)), 0L)
+  bet_df <- get_betting(2021, 2021, 1, 1)
+  expect_s3_class(bet_df, "data.frame", exact = FALSE)
+  expect_gt(nrow(bet_df), 0L)
   expect_gt(nrow(get_betting(2021, 2021, 1, 1, season_type = "postseason")), 0L)
   expect_gt(nrow(get_betting(2021, 2021, 1, 1, season_type = "regular")), 0L)
-  expect_vector(get_betting(2021,2021, 1, 1)$homeScore)
-  expect_vector(get_betting(2021,2021, 1, 1)$awayScore)
+  expect_vector(bet_df$homeScore)
+  expect_vector(bet_df$awayScore)
 })
 
 test_that("get_drives() works", {

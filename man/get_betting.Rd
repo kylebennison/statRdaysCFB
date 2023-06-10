@@ -4,16 +4,18 @@
 \alias{get_betting}
 \title{Get betting data from the cfbd api}
 \usage{
-get_betting(start_year, end_year, start_week = 1, end_week = 1)
+get_betting(start_year, end_year, start_week, end_week, season_type = "both")
 }
 \arguments{
 \item{start_year}{int. The first season you want betting data for.}
 
 \item{end_year}{int. The last season you want betting data for.}
 
-\item{start_week}{int. The first week of the season you want betting data for.}
+\item{start_week}{int (optional). The first week of the season you want betting data for.}
 
-\item{end_week}{int. The last week of the season you want betting data for.}
+\item{end_week}{int (optional). The last week of the season you want betting data for.}
+
+\item{season_type}{character. "regular", "postseason", or "both". Default is "both".}
 }
 \value{
 tibble of game-level betting data
@@ -29,5 +31,5 @@ for each game. We've taken the liberty of taking the average line of the differe
 providers in cases where there's more than one line given. However, if you'd
 prefer to get all the lines from the various providers yourself, you can instead
 make a call to to betting endpoint directly (https://api.collegefootballdata.com/lines)
-using the cfbd_api() function.
+using the get_anything() function.
 }
