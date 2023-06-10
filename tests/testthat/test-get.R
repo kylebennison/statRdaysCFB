@@ -13,19 +13,25 @@ test_that("get_games() works", {
 })
 
 test_that("get_anything() works", {
+  df <- get_anything(url = "https://api.collegefootballdata.com/venues")
   expect_s3_class(
-    get_anything(url = "https://api.collegefootballdata.com/venues"),
+    df,
     "data.frame",
     exact = FALSE
   )
   expect_gt(nrow(
-    get_anything(url = "https://api.collegefootballdata.com/venues")
+    df
   ), 0L)
+  expect_true("year" %in% colnames(df))
 })
 
 test_that("get_betting() works", {
-  expect_s3_class(get_betting(), "data.frame", exact = FALSE)
-  expect_gt(nrow(get_betting()), 0L)
+  expect_s3_class(get_betting(2021, 2021, 1, 1), "data.frame", exact = FALSE)
+  expect_gt(nrow(get_betting(2021, 2021, 1, 1)), 0L)
+  expect_gt(nrow(get_betting(2021, 2021, 1, 1, season_type = "postseason")), 0L)
+  expect_gt(nrow(get_betting(2021, 2021, 1, 1, season_type = "regular")), 0L)
+  expect_vector(get_betting(2021,2021, 1, 1)$homeScore)
+  expect_vector(get_betting(2021,2021, 1, 1)$awayScore)
 })
 
 test_that("get_drives() works", {

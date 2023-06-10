@@ -1,13 +1,13 @@
 Package: statRdaysCFB
 Title: Work With The Collegefootballdata.com API, Easily
-Version: 1.0.1
+Version: 1.2.1
 Authors@R: 
     person("Kyle", "Bennison", , "kyle@staturdays.com", role = c("aut", "cre"))
 Description: This package makes calls to the collegefootballdata.com API for you, making it easy to get
   almost any data from any endpoint. We use the API key that you supply us and save it for you,
   and take care of all the complicated looping and stuff you don't want to have to worry about. We
   also include some bonus features like success rates, win probabilities, and elo ratings.
-License: GPL (>= 3)
+License: GPL (>= 3) + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.0
