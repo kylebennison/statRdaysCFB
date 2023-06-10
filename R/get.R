@@ -304,6 +304,7 @@ get_anything <- function(url, start_year=2021, end_year=2021, start_week, end_we
 
       response_url <- paste0(url, "?year=", as.character(yr))
       r1 <- cfbd_api(response_url, key = key)
+      r1$year <- yr
       response <- rbind(response, r1)
       message("Done year ", yr)
 
@@ -318,6 +319,8 @@ get_anything <- function(url, start_year=2021, end_year=2021, start_week, end_we
                                "?year=", as.character(yr),
                                "&week=", as.character(wk))
         r1 <- cfbd_api(response_url, key = key)
+        r1$year <- yr
+        r1$week <- wk
         response <- rbind(response, r1)
         message("Done year ", yr, " week ", wk)
 
